@@ -7,7 +7,7 @@ baseurl: '/BasisForGSAlgo'
 url: 'https://ktwin01.github.io'
 timezone: Asia/Seoul
 
-favicon:
+favicon: /favicon.ico
 
 repository: ktwin01/BasisForGSAlgo
 
