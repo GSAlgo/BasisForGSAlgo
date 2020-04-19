@@ -2,7 +2,7 @@
 layout: author
 name: Nam Hyuk K
 title: 권남혁
-image: /files/authors/Nam Hyuk K.jpeg
+image: /files/authors/Nam Hyuk K.jpg
 cover: /files/covers/twin_peaks.jpeg
 ---
 
