@@ -1,0 +1,229 @@
+/*$base-font-family: Helvetica, Arial, sans-serif;
+$base-font-size:   16px;
+$small-font-size:  $base-font-size * 0.875;
+$base-line-height: 1.5; 
+
+html {
+    overflow: hidden;
+}
+
+#logo{
+    width: 50vh;
+}
+
+body{
+    font-family: $base-font-family;
+    font-weight: 300;
+    padding: 0;
+    margin: 0;
+}
+
+.page {
+    height: 100vh;
+    perspective: 1px;
+    transform-style: preserve-3d;
+    overflow-x:hidden;
+    overflow-y:auto;
+}
+.parallax-wrapper {
+    width: 100vw;
+    height: 100vh;
+    padding-top:20vh;
+    box-sizing: border-box;
+    transform-style: preserve-3d;
+}
+.parallax-wrapper::before {
+    content:"";
+    width: 100vw;
+    height: 100vh;
+    top:0;
+    left:0;
+    position: absolute;
+    z-index: -1;
+    transform:translateZ(-1px) scale(2);
+    background-repeat : no-repeat;
+    background-position: top;
+    background-size : cover;
+  }
+.regular-wrapper {
+    width: 100vw;
+    height: 100vh;
+    padding-top:0vh;
+    z-index: 2;
+    background-repeat : no-repeat;
+    background-size : cover;
+    background-position: top;
+    position: relative;
+}
+.content {
+    margin: auto;
+    padding: 60px;
+    width: 70%;
+    height: 50%;
+    text-align: center;
+    font-size: 1.2rem;
+    color:#C24CF6;
+    text-shadow: 0px 0px 10px #FF1493; 
+}
+
+h2 {
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+*/
+
+@import url(https://fonts.googleapis.com/css?family=Montserrat);
+
+// ------------- MIXINS ------------- //
+@mixin transition($time, $property: all, $easing: ease-in) {
+    transition: $property $time $easing;
+}
+
+// ------------- VARIABLES ------------- //
+$parallax-offset: 30vh;
+$content-offset: 40vh;
+$transition-speed: 1.2s;
+$slide-number: 7;
+
+html, body {
+  overflow: hidden;
+  padding: 0;
+    margin: 0;
+}
+
+.background {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  overflow: hidden;
+  will-change: transform;
+  backface-visibility: hidden;
+  height: 100vh + $parallax-offset;
+  position: fixed;
+  width: 100%;
+  transform: translateY($parallax-offset);
+  @include transition($transition-speed, all, cubic-bezier(0.22, 0.44, 0, 1));
+  &:before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,.3);
+  }
+  &:first-child {
+    background-image: url($baseurl + "/assets/images/portfolio_gsalgo/background_2.jpeg");
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background-image: linear-gradient(to bottom right,#002f4b,#dc4225);
+      opacity: .6; 
+    }
+    transform: translateY(-$parallax-offset / 2);
+    .content-wrapper {
+      transform: translateY($parallax-offset /2);
+    }
+  }
+  &:nth-child(2) { //소개
+    background-image: url($baseurl + "/assets/images/portfolio_gsalgo/jo.jpeg");
+  }
+  &:nth-child(3) { //쌤
+    background-image: url($baseurl + "/assets/images/portfolio_gsalgo/jo2.jpeg");
+  }
+  &:nth-child(4) { //이룸
+    background-image: url($baseurl + "/assets/images/portfolio_gsalgo/jo3.jpeg");
+  }
+  &:nth-child(5) { //장비
+    background-image: url($baseurl + "/assets/images/portfolio_gsalgo/wo.jpeg");
+  }
+  &:nth-child(6) { //활동
+    background-image: url($baseurl + "/assets/images/portfolio_gsalgo/jo.jpeg");
+  }
+}
+
+/* Set stacking context of slides */
+@for $i from 1 to ($slide-number + 1) {
+    .background:nth-child(#{$i}) {
+        z-index: ($slide-number + 1) - $i; 
+    }
+}
+
+.content {
+  &-wrapper {
+  height: 100vh;
+  margin : 0 5% 0 5%;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  flex-flow: column nowrap;
+  color: #fff;
+  font-family: Montserrat;
+  text-transform: uppercase;
+  transform: translateY($content-offset);
+  will-change: transform;
+  backface-visibility: hidden;
+  @include transition($transition-speed + .5, all, cubic-bezier(0.22, 0.44, 0, 1));
+  }
+  &-title {
+    font-size: 4rem;
+    line-height: 1.4;
+  }
+}
+
+// ------------- SET TRANSFORM VALUES ------------- //
+
+.background.up-scroll {
+  transform: translate3d(0,-$parallax-offset / 2,0);
+  .content-wrapper {
+    transform: translateY($parallax-offset / 2);
+  }
+  + .background {
+    transform: translate3d(0,$parallax-offset,0);
+      .content-wrapper {
+        transform: translateY($parallax-offset);
+      }
+    }
+}
+
+.background.down-scroll {
+  transform: translate3d(0,-(100vh + $parallax-offset),0);
+  .content-wrapper {
+    transform: translateY($content-offset);
+  }
+  + .background:not(.down-scroll) {
+    transform: translate3d(0,-$parallax-offset / 2,0);
+      .content-wrapper {
+        transform: translateY($parallax-offset / 2);
+      }
+  }
+}
+
+.scroll-left p {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    line-height: 50px;
+    text-align: center;
+    /* Starting position */
+    -moz-transform:translateX(100%);
+    -webkit-transform:translateX(100%);	
+    transform:translateX(100%);
+    /* Apply animation to this element */	
+    -moz-animation: scroll-left 10s linear infinite;
+    -webkit-animation: scroll-left 10s linear infinite;
+    animation: scroll-left 10s linear infinite;
+   }
+
+#logo{
+    align-self: center;
+    width: 30vh;
+}
