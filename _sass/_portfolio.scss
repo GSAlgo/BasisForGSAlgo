@@ -60,14 +60,7 @@ html, body {
   }
   &:nth-child(2) { //소개
     background-image: url($baseurl + "/assets/images/portfolio_gsalgo/mathlover.jpeg");
-    &:before {
-      content: '';
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-    }
+    background-position: top;
   }
   &:nth-child(3) { //장순규T
     background-image: url($baseurl + "/assets/images/portfolio_gsalgo/JangT.png");
@@ -76,7 +69,7 @@ html, body {
     background-position: right bottom;
   }
   &:nth-child(4) { //황정배T
-    background-image: url($baseurl + "/assets/images/portfolio_gsalgo/HwangT.png");
+    background-image: url($baseurl + "/assets/images/portfolio_gsalgo/HwangT.jpg");
     background-color: black;
     background-size: 50vh;
     background-position: left bottom;
