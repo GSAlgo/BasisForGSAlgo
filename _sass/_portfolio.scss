@@ -9,12 +9,12 @@
 $parallax-offset: 30vh;
 $content-offset: 40vh;
 $transition-speed: 1.2s;
-$slide-number: 7;
+$slide-number: 10;
 
 html, body {
   overflow: hidden;
   padding: 0;
-    margin: 0;
+  margin: 0;
 }
 
 .background {
@@ -64,13 +64,22 @@ html, body {
   &:nth-child(3) { //쌤
     background-image: url($baseurl + "/assets/images/portfolio_gsalgo/jo2.jpeg");
   }
-  &:nth-child(4) { //이룸
+  &:nth-child(4) { //쌤
+    background-image: url($baseurl + "/assets/images/portfolio_gsalgo/jo2.jpeg");
+  }
+  &:nth-child(5) { //이룸
     background-image: url($baseurl + "/assets/images/portfolio_gsalgo/jo3.jpeg");
   }
-  &:nth-child(5) { //장비
+  &:nth-child(6) { //장비
     background-image: url($baseurl + "/assets/images/portfolio_gsalgo/wo.jpeg");
   }
-  &:nth-child(6) { //활동
+  &:nth-child(7) { //활동1
+    background-image: url($baseurl + "/assets/images/portfolio_gsalgo/jo.jpeg");
+  }
+  &:nth-child(8) { //활동2
+    background-image: url($baseurl + "/assets/images/portfolio_gsalgo/jo.jpeg");
+  }
+  &:nth-child(9) { //활동3
     background-image: url($baseurl + "/assets/images/portfolio_gsalgo/jo.jpeg");
   }
 }
@@ -101,6 +110,11 @@ html, body {
   &-title {
     font-size: 4rem;
     line-height: 1.4;
+    margin-block-end: 0rem;
+  }
+  &-subtitle{
+    font-size: 1rem;
+    line-height: 1.0;
   }
 }
 
