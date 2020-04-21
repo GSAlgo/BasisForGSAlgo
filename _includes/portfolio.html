@@ -11,6 +11,40 @@ var currentSlideNumber = 0;
 var totalSlideNumber = $(".background").length;
 
 // ------------- DETERMINE DELTA/SCROLL DIRECTION ------------- //
+var scroll_updated=0, st;
+
+function touchScroll_init(evt){
+  console.log(evt);
+  startY = evt.changedTouches[0].screenY;
+}
+
+function touchScroll(evt){
+  console.log(evt);
+  endY=evt.changedTouches[0].screenY;
+  delta = endY - startY;
+  
+  if (ticking != true) {
+    if (delta <= -scrollSensitivitySetting) {
+      //Down scroll
+      ticking = true;
+      if (currentSlideNumber !== totalSlideNumber - 1) {
+        currentSlideNumber++;
+        nextItem();
+      }
+      slideDurationTimeout(slideDurationSetting);
+    }
+    if (delta >= scrollSensitivitySetting) {
+      //Up scroll
+      ticking = true;
+      if (currentSlideNumber !== 0) {
+        currentSlideNumber--;
+      }
+      previousItem();
+      slideDurationTimeout(slideDurationSetting);
+    }
+  }
+}
+
 function parallaxScroll(evt) {
   if (isFirefox) {
     //Set delta for Firefox
@@ -55,6 +89,8 @@ function slideDurationTimeout(slideDuration) {
 // ------------- ADD EVENT LISTENER ------------- //
 var mousewheelEvent = isFirefox ? "DOMMouseScroll" : "wheel";
 window.addEventListener(mousewheelEvent, _.throttle(parallaxScroll, 60), false);
+window.addEventListener("touchstart", _.throttle(touchScroll_init, 60), false)
+window.addEventListener("touchend", _.throttle(touchScroll, 30), false);
 
 // ------------- SLIDE MOTION ------------- //
 function nextItem() {
@@ -67,6 +103,7 @@ function previousItem() {
   $currentSlide.removeClass("down-scroll").addClass("up-scroll");
 }
 
+// ------------- LOADER ------------- //
 $(window).on("load",function(){
     $(".loader-wrapper").fadeOut("slow");
 });
