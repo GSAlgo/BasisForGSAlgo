@@ -4,10 +4,10 @@ email: "13st_24@gss.hs.kr"
 description: |
   경산과학고등학교 정보 동아리
 baseurl: '/BasisForGSAlgo'
-url: 'https://ktwin01.github.io'
+url: 'https://gsalgo.github.io'
 timezone: Asia/Seoul
 
-repository: ktwin01/BasisForGSAlgo
+repository: gsalgo/BasisForGSAlgo
 
 permalink: /:categories/:title/
 
