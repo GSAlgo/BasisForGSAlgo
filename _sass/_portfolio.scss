@@ -68,7 +68,17 @@ html, body {
     background-image: url($baseurl + "/assets/images/portfolio_gsalgo/jo2.jpeg");
   }
   &:nth-child(5) { //이룸
-    background-image: url($baseurl + "/assets/images/portfolio_gsalgo/jo3.jpeg");
+    background-image: url($baseurl + "/assets/images/portfolio_gsalgo/group_photo.jpg");
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background-image: linear-gradient(to bottom right,#002f4b,#dc4225);
+      opacity: .6; 
+    }
   }
   &:nth-child(6) { //장비
     background-image: url($baseurl + "/assets/images/portfolio_gsalgo/wo.jpeg");
@@ -77,7 +87,17 @@ html, body {
     background-image: url($baseurl + "/assets/images/portfolio_gsalgo/jo.jpeg");
   }
   &:nth-child(8) { //활동2
-    background-image: url($baseurl + "/assets/images/portfolio_gsalgo/jo.jpeg");
+    background-image: url($baseurl + "/assets/images/portfolio_gsalgo/background_1.jpeg");
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background-image: linear-gradient(to bottom right,#a1c4fd,#764ba2);
+      opacity: .6; 
+    }
   }
   &:nth-child(9) { //활동3
     background-image: url($baseurl + "/assets/images/portfolio_gsalgo/jo.jpeg");
