@@ -42,7 +42,7 @@ html, body {
   }
   
   &:first-child {
-    background-image: url($baseurl + "/assets/images/portfolio_gsalgo/background_2.jpeg");
+    background-image: url($baseurl + "/assets/images/portfolio_gsalgo/background_2.jpg");
     &:before {
       content: '';
       position: absolute;
@@ -121,7 +121,7 @@ html, body {
     }
   }
   &:nth-child(8) { //자연탐사
-    background-image: url($baseurl + "/assets/images/portfolio_gsalgo/research.jpeg");
+    background-image: url($baseurl + "/assets/images/portfolio_gsalgo/background_1.jpg");
     &:before {
       content: '';
       position: absolute;
