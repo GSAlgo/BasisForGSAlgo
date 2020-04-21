@@ -9,7 +9,7 @@
 $parallax-offset: 30vh;
 $content-offset: 40vh;
 $transition-speed: 1.2s;
-$slide-number: 10;
+$slide-number: 11;
 
 html, body {
   overflow: hidden;
@@ -42,7 +42,7 @@ html, body {
   }
   
   &:first-child {
-    background-image: url($baseurl + "/assets/images/portfolio_gsalgo/background_2.jpeg");
+    background-image: url($baseurl + "/assets/images/portfolio_gsalgo/background_2.jpg");
     &:before {
       content: '';
       position: absolute;
@@ -59,13 +59,27 @@ html, body {
     }
   }
   &:nth-child(2) { //소개
-    background-image: url($baseurl + "/assets/images/portfolio_gsalgo/jo.jpeg");
+    background-image: url($baseurl + "/assets/images/portfolio_gsalgo/mathlover.jpeg");
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+    }
   }
-  &:nth-child(3) { //쌤
-    background-image: url($baseurl + "/assets/images/portfolio_gsalgo/jo2.jpeg");
+  &:nth-child(3) { //장순규T
+    background-image: url($baseurl + "/assets/images/portfolio_gsalgo/JangT.png");
+    background-color: black;
+    background-size: 30vh;
+    background-position: right bottom;
   }
-  &:nth-child(4) { //쌤
-    background-image: url($baseurl + "/assets/images/portfolio_gsalgo/jo2.jpeg");
+  &:nth-child(4) { //황정배T
+    background-image: url($baseurl + "/assets/images/portfolio_gsalgo/HwangT.png");
+    background-color: black;
+    background-size: 50vh;
+    background-position: left bottom;
   }
   &:nth-child(5) { //이룸
     background-image: url($baseurl + "/assets/images/portfolio_gsalgo/group_photo.jpg");
@@ -77,17 +91,37 @@ html, body {
       bottom: 0;
       left: 0;
       background-image: linear-gradient(to bottom right,#002f4b,#dc4225);
-      opacity: .6; 
+      opacity: .4; 
     }
   }
   &:nth-child(6) { //장비
-    background-image: url($baseurl + "/assets/images/portfolio_gsalgo/wo.jpeg");
+    background-image: url($baseurl + "/assets/images/portfolio_gsalgo/box.jpg");
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background-image: linear-gradient(to bottom right,#72EDF2,#5151E5);
+      opacity: .2; 
+    }
   }
-  &:nth-child(7) { //활동1
-    background-image: url($baseurl + "/assets/images/portfolio_gsalgo/jo.jpeg");
+  &:nth-child(7) { //해커톤
+    background-image: url($baseurl + "/assets/images/portfolio_gsalgo/hackerthon.jpg");
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background-image: linear-gradient(to bottom right,#002f4b,#dc4225);
+      opacity: .4; 
+    }
   }
-  &:nth-child(8) { //활동2
-    background-image: url($baseurl + "/assets/images/portfolio_gsalgo/background_1.jpeg");
+  &:nth-child(8) { //자연탐사
+    background-image: url($baseurl + "/assets/images/portfolio_gsalgo/background_1.jpg");
     &:before {
       content: '';
       position: absolute;
@@ -96,11 +130,24 @@ html, body {
       bottom: 0;
       left: 0;
       background-image: linear-gradient(to bottom right,#a1c4fd,#764ba2);
-      opacity: .6; 
+      opacity: .3; 
     }
   }
-  &:nth-child(9) { //활동3
-    background-image: url($baseurl + "/assets/images/portfolio_gsalgo/jo.jpeg");
+  &:nth-child(9) { //금벚제
+    background-image: url($baseurl + "/assets/images/portfolio_gsalgo/group_photo.jpg");
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background-image: linear-gradient(to bottom right,#BE93C5,#7BC6CC);
+      opacity: .4; 
+    }
+  }
+  &:nth-child(10) { //WANTYOU
+    background-color: black;
   }
 }
 
@@ -128,7 +175,7 @@ html, body {
   @include transition($transition-speed + .5, all, cubic-bezier(0.22, 0.44, 0, 1));
   }
   &-title {
-    font-size: 4rem;
+    font-size: 3rem;
     line-height: 1.4;
     margin-block-end: 0rem;
   }
