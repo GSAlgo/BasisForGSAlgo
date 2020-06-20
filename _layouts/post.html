@@ -18,4 +18,10 @@ layout: default
   {% include author_card.html %}
   {% endfor %}
   
+  <div    class="fb-comments" 
+        data-href='"{{ site.url | append: page.url }}"'
+        data-width="100%" 
+        data-numposts="5">
+  </div>
+
 </div>
