@@ -1,10 +1,10 @@
 ---
 layout : post
 author : JaeyunK
-title : 4.Divide and conqure
+title : 4.Divide and conquer
 categories: [Algorithm]
 tags:
-    - divide and conqure
+    - divide and conquer
 use_math: true
 toc: true
 ---
